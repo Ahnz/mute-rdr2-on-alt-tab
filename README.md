@@ -1,24 +1,8 @@
-# mute-current-application
-Autohotkey script to mute the current application by pressing F1. This will ONLY mute the application that is in focus, leaving all background applications still audible.
+# mute-rdr2-on-alt-tab
 
-F1 is no good for you? 
-[Keybinding can be changed here](AHK/mute_current_application.ahk#L4) 
+<ins>ALT+TAB needs to be pressed twice on first start for the script to be recognized correctly. Afterwards the script should work as intended:</int>
 
-To do this, you'll need to download a copy of Autohotkey yourself, download source files, make the neccesary changes, and then compile them. Or ask a friend who knows these kinda things to do it for you.
+Mutes the game when alt tabbing out of it.
+Reentering the game will unmute the game.
 
-Syntax tips:
-
-Alt = '!'
-
-Control = '^'
-
-Shift = '+'
-
-+F1   then becomes Shift+F1 on keyboard.
-
-^m    then becomes Control+M on keyboard.
-
-^+m 	then becomes control + shift + m on keyboard
-
-
-It is possible to stack multiple keybinds on top of each other to all perform the same action.
+This script can be used for any program. Just rename RDR2.exe inside the script to any Executable you want.
