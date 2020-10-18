@@ -2,31 +2,27 @@
 #Include VA.ahk
 #SingleInstance force
 
-LAlt & q:: Send {Alt Down}{Tab}{Alt Up}
-
 ~!TAB::  ; ALT+TAB hotkey - toggle mute state of active window
-	WinGet, ActivePid, PID, A
-	If WinActive("ahk_exe RDR2.exe") ; Red Dead Redemption 2
-	{  	  
-	  if !(Volume := GetVolumeObject(ActivePid))
-		return
-	  VA_ISimpleAudioVolume_SetMute(Volume, true) ;Toggle mute state
-	  ObjRelease(Volume)
-	}
-	Sleep 200
-	WinWaitActive, ahk_exe RDR2.exe, ,
-	if ErrorLevel
-	{
-		MsgBox, WinWait timed out.
-		return
-	}
-	else
-	{
-	 if !(Volume := GetVolumeObject(ActivePid))
-		return
-	  VA_ISimpleAudioVolume_SetMute(Volume, false) ;Toggle mute state
-	  ObjRelease(Volume)
-	}
+WinGet, ActivePid, PID, A
+If WinActive("ahk_exe RDR2.exe") ; Red Dead Redemption 2
+{
+   if !(Volume := GetVolumeObject(ActivePid))
+   return
+   VA_ISimpleAudioVolume_SetMute(Volume, true) ;Toggle mute state
+   ObjRelease(Volume)
+   Sleep 200
+   WinWaitActive, ahk_exe RDR2.exe, ,
+   if ErrorLevel
+   {
+      MsgBox, WinWait timed out.
+      return
+   }else  {
+      if !(Volume := GetVolumeObject(ActivePid))
+      return
+      VA_ISimpleAudioVolume_SetMute(Volume, false) ;Toggle mute state
+      ObjRelease(Volume)
+   }}
+   
 return
 
 ;Required for app specific mute
