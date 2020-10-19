@@ -10,6 +10,7 @@ If WinActive("ahk_exe RDR2.exe") ; Red Dead Redemption 2
    return
    VA_ISimpleAudioVolume_SetMute(Volume, true) ;Toggle mute state
    ObjRelease(Volume)
+   Run, powershell  -windowstyle hidden -nologo -Command "$Process = Get-Process RDR2; $Process.ProcessorAffinity=128",, hide
    Sleep 200
    WinWaitActive, ahk_exe RDR2.exe, ,
    if ErrorLevel
@@ -21,6 +22,7 @@ If WinActive("ahk_exe RDR2.exe") ; Red Dead Redemption 2
       return
       VA_ISimpleAudioVolume_SetMute(Volume, false) ;Toggle mute state
       ObjRelease(Volume)
+	  Run, powershell  -windowstyle hidden -nologo  -Command "$Process = Get-Process RDR2; $Process.ProcessorAffinity=255",, hide
    }}
    
 return
